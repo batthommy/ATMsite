@@ -5,186 +5,233 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!atmContainer) return;
 
     atmContainer.addEventListener('click', () => {
-        atmContainer.classList.toggle('attivo');
+        atmContainer.classList.toggle('active');
     });
 
 
-    const membri = document.querySelectorAll('.membro');
+    const members = document.querySelectorAll('.member');
 
-    let membroArmato = null;
+    let selectedMember = null;
 
-    membri.forEach(membro => {
+    members.forEach(member => {
 
-        membro.addEventListener('click', () => {
+        member.addEventListener('click', () => {
 
-            if (membroArmato !== membro) {
+            if (selectedMember !== member) {
 
-                if (membroArmato) {
-                    membroArmato.classList.remove('selected');
+                if (selectedMember) {
+                    selectedMember.classList.remove('selected');
                 }
 
-                membroArmato = membro;
-                membro.classList.add('selected');
+                selectedMember = member;
+                member.classList.add('selected');
 
                 return;
             }
 
             const nickname =
-                membro.querySelector('h3')
+                member.querySelector('h3')
                 .dataset.surname;
 
             window.location.href =
-                `/pagine-persone/${nickname}.html`;
+                `/people-pages/${nickname}.html`;
         });
 
     });
 
 
+    const technologies = document.querySelectorAll('.technologies span');
+    const technologyCard =
+        document.querySelector('.technology-card');
 
-    const tecnologie = document.querySelectorAll('.tecnologie span');
-    const tecnologiaCard =
-        document.querySelector('.tecnologia-card');
+    const technologyData = {
 
-    const datiTecnologie = {
-
-        HTML:{
-            testo:"Il linguaggio che utilizziamo per costruire la struttura dei nostri siti web.",
-            chi:["Thomas"],
-            percentuale:"85%"
+        HTML: {
+            text: "The language we use to build the structure of our websites.",
+            people: ["Thomas"],
+            percentage: "85%"
         },
 
-        CSS:{
-            testo:"Serve per rendere belli, leggibili e responsive i nostri progetti.",
-            chi:["Thomas"],
-            percentuale:"75%"
+        CSS: {
+            text: "Used to make our projects beautiful, readable, and responsive.",
+            people: ["Thomas"],
+            percentage: "75%"
         },
 
-        JavaScript:{
-            testo:"Dà vita alle pagine con animazioni, logica e interattività.",
-            chi:["Thomas"],
-            percentuale:"45%"
+        JavaScript: {
+            text: "Brings pages to life with animations, logic, and interactivity.",
+            people: ["Thomas"],
+            percentage: "45%"
         },
 
-        Python:{
-            testo:"Utilizzato per automazioni, test e piccoli strumenti.",
-            chi:["Thomas"],
-            percentuale:"10%"
+        Python: {
+            text: "Used for automation, testing, and small tools.",
+            people: ["Thomas"],
+            percentage: "10%"
         },
 
-        "VS Code":{
-            testo:"L'editor principale che utilizziamo per sviluppare.",
-            chi:["Thomas"],
-            percentuale:"100%"
+        "VS Code": {
+            text: "The main editor we use for development.",
+            people: ["Thomas"],
+            percentage: "100%"
         },
 
-        Arduino:{
-            testo:"Usato per progetti elettronici e sperimentazioni hardware.",
-            chi:["<br>"],
-            percentuale:"3%"
+        Arduino: {
+            text: "Used for electronic projects and hardware experiments.",
+            people: ["<br>"],
+            percentage: "3%"
         },
 
-        Scratch:{
-            testo:"Lo usiamo come base per creare belle cose quanto vogliamo sbrigarci.",
-            chi:["<br>"],
-            percentuale:"1%"
+        Scratch: {
+            text: "We use it as a base for creating things when we want to work quickly.",
+            people: ["<br>"],
+            percentage: "1%"
         },
 
-        DocumentAtm:{
-            testo:"Lo usiamo per documentazioni ufficiali",
-            chi:["Thomas"],
-            percentuale:"20%"
+        DocumentAtm: {
+            text: "We use it for official documentation.",
+            people: ["Thomas"],
+            percentage: "20%"
         }
     };
 
-    tecnologie.forEach(btn => {
 
-        btn.addEventListener('click', () => {
+    technologies.forEach(button => {
 
-            tecnologie.forEach(t =>
-                t.classList.remove('active')
+        button.addEventListener('click', () => {
+
+            technologies.forEach(tech =>
+                tech.classList.remove('active')
             );
 
-            btn.classList.add('active');
+            button.classList.add('active');
 
-            const dati =
-                datiTecnologie[btn.textContent];
+            const data =
+                technologyData[button.textContent];
 
-            tecnologiaCard.innerHTML = `
-                <p>${dati.testo}</p>
+            technologyCard.innerHTML = `
+                <p>${data.text}</p>
 
-                <h4>Chi:</h4>
+                <h4>Who:</h4>
 
                 <ul>
-                    ${dati.chi.map(x => `<li>${x}</li>`).join('')}
+                    ${data.people.map(x => `<li>${x}</li>`).join('')}
                 </ul>
 
-                <h4>Percentuale:</h4>
+                <h4>Percentage:</h4>
 
-                <span>${dati.percentuale} Del Totale</span>
+                <span>${data.percentage} Of Total</span>
             `;
         });
 
     });
 
-    tecnologie[0].click();
+
+    technologies[0].click();
 
 
+    const contactForm =
+        document.querySelector('#atm-contact-form');
+
+    const otherReason =
+        document.querySelector('#other-reason');
+
+    const reasons =
+        document.querySelectorAll('input[name="reason"]');
 
 
-    const formATM = document.querySelector('#atm-contact-form');
-    const motivoAltro = document.querySelector('#motivo-altro');
-    const motivi = document.querySelectorAll('input[name="motivo"]');
+    reasons.forEach(reason => {
 
-    motivi.forEach(motivo => {
-        motivo.addEventListener('change', () => {
-            motivoAltro.style.display =
-                motivo.value === 'Altro' && motivo.checked
+        reason.addEventListener('change', () => {
+
+            otherReason.style.display =
+                reason.value === 'Other' && reason.checked
                     ? 'block'
                     : 'none';
+
         });
+
     });
 
-    formATM.addEventListener('submit', e => {
+
+    contactForm.addEventListener('submit', e => {
+
         e.preventDefault();
 
-        const motivoSelezionato = document.querySelector('input[name="motivo"]:checked').value;
-        const motivo =
-            motivoSelezionato === 'Altro'
-                ? motivoAltro.value
-                : motivoSelezionato;
 
-        const destinatari = [...document.querySelectorAll('input[name="destinatari"]:checked')]
-            .map(x => x.value)
-            .join(', ');
+        const selectedReason =
+            document.querySelector(
+                'input[name="reason"]:checked'
+            ).value;
 
-        const argomento = document.querySelector('#argomento').value;
-        const messaggio = document.querySelector('#messaggio').value;
-        const nome = document.querySelector('#nome').value;
-        const email = document.querySelector('#email').value;
-        const azienda = document.querySelector('#azienda').value;
-        const urgenza = document.querySelector('#urgenza').value;
-        const comeTrovati = document.querySelector('#come-trovati').value || 'Non specificato';
 
-        const corpoMail =
-    `Motivo: ${motivo}
+        const reason =
+            selectedReason === 'Other'
+                ? otherReason.value
+                : selectedReason;
 
-    Destinatari: ${destinatari}
 
-    Argomento:
-    ${argomento}
+        const recipients =
+            [...document.querySelectorAll(
+                'input[name="recipients"]:checked'
+            )]
+                .map(x => x.value)
+                .join(', ');
 
-    Messaggio:
-    ${messaggio}
 
-    Nome: ${nome}
-    Email: ${email}
-    Azienda / Organizzazione: ${azienda || 'Non specificata'}
-    Urgenza: ${urgenza}
-    Come ci ha trovati: ${comeTrovati}`;
+        const topic =
+            document.querySelector('#topic').value;
 
-        const subject = encodeURIComponent(`Contatto ATM - ${argomento || motivo}`);
-        const body = encodeURIComponent(corpoMail);
+        const message =
+            document.querySelector('#message').value;
 
-        window.location.href = `mailto:batthommy@gmail.it?subject=${subject}&body=${body}`;
+        const name =
+            document.querySelector('#name').value;
+
+        const email =
+            document.querySelector('#email').value;
+
+        const company =
+            document.querySelector('#company').value;
+
+        const urgency =
+            document.querySelector('#urgency').value;
+
+        const howFoundUs =
+            document.querySelector('#how-found-us').value ||
+            'Not specified';
+
+
+        const emailBody =
+`Reason: ${reason}
+
+Recipients: ${recipients}
+
+Topic:
+${topic}
+
+Message:
+${message}
+
+Name: ${name}
+Email: ${email}
+Company / Organization: ${company || 'Not specified'}
+Urgency: ${urgency}
+How you found us: ${howFoundUs}`;
+
+
+        const subject =
+            encodeURIComponent(
+                `ATM Contact - ${topic || reason}`
+            );
+
+        const body =
+            encodeURIComponent(emailBody);
+
+
+        window.location.href =
+            `mailto:ATM@thobttl.it?subject=${subject}&body=${body}`;
+
     });
+
 });
