@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://atm.thobttl.it/sitemap.xml
