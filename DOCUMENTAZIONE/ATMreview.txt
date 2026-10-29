@@ -1,0 +1,64 @@
+First of all, since everything is in Italian, clone it into two folders—'ita' and 'eng'—and work on the 'eng' one; when you're finished, I'll translate it and review the Italian version.
+For the text sections, translate everything from Italian to English, keeping the original meaning and tone intact. Make sure to maintain the formatting and structure of the text.
+
+Follow everything to the letter; after each step, reflect and double-check; do everything correctly; follow the points exactly as they are laid out.
+
+First of all, do not change anything that isn't necessary or that I didn't write myself—ask me first. Do not change the style, colors, or functionality.
+
+1. For the image section, I’ll give you a zip file containing all the images to go there; remove the existing ones and use the ones I’m providing.
+
+2. Add all the members; below, I’ll include a description of everyone and what to write for each person  \|/
+* 
+APARCHITA: co-founder ; External contact management, problem resolution
+Faraj Ziad: hardware ; Video games, but above all hardware. Very active.
+Krishiv Joshi: member ; Very capable and eager; gets a lot done in a short time.
+n1tr0xx: member ; He knows two main languages ​​that could be a huge help to us!
+Niraj Gundecha: member ; Truly skilled with code and the management of the large-scale projects we undertake—highly commendable.
+
+
+3. If you scroll down, you’ll find the list of projects; replace them with the ones listed below, in exactly this order and format  \|/
+*
+THIS SITE : ATM's current project : Completed
+MATH : A mathematics project, highly minimalist and brilliant, created by Thomas : Completed
+SMART E-MAIL : A unique site made in collaboration with another person with an E-mail theme : In progress
+DOCUMENT ATM : A site made for documentation, maybe corporate, usable for other things, but it is also much more, with a language called .atmd! : In progress
+MATH CHALLENGE : The continuation of math, focused on challenges : In progress
+ATM internal Chat : an internal ATM chat, not currently open to the public : In progress
+
+ATTENTION!! You need to ensure that hovering over each item changes the text below to prompt a click, because clicking that text takes the user there—provided it is finished.
+
+
+4. For the technologies, arrange them according to what I’ll tell you below  \|/
+*
+HTML : * : Thomas, Krishiv Joshi, Niraj Gundecha, n1tr0xx : 70%
+CSS : * : Thomas, Krishiv Joshi, Niraj Gundecha, n1tr0xx, Faraj Ziad : 60%
+JavaScript : * : Faraj Ziad, Krishiv Joshi, n1tr0xx : 45%
+PYTHON : * : Thomas, Krishiv Joshi, Niraj Gundecha, Faraj Ziad, n1tr0xx : 15%
+Arduino : * : Faraj Ziad : 3%
+Scratch : * :  : 10%
+DocumentAtm : * : Thomas : 2%
+C++ : used to create high-performance algorithms and video games : Faraj Ziad, Niraj Gundecha : 15%
+C# : used primarily for creating video games : n1tr0xx,  : 10%
+C : low-level language, rarely used, video games too : Faraj Ziad : 2%
+
+
+5. Change these things in the footer:
+    [ Set the project status to version 2.0
+    [ Update the year to {JavaScript system that inserts the current year}
+    [ under "realizzazione" put "revision" or "reconstruction" and put you
+
+6. In the individual profile sections—specifically within that folder—add a page containing the relevant links (fixing the broken link) that point to their portfolios; I will provide the links below. If they don't have one, leave the page blank  \|/
+*
+Thomas: https://thomas.thobttl.it ALREADY EXISTS
+Aparchita: Null
+Faraj Ziad: https://farajziadinformations.netlify.app/
+Krishiv Joshi: Null
+n1tr0xx: Null
+Niraj Gundecha: Null
+
+
+7. If there are other parts that need changing, list them all, and then I'll tell you what to do.
+
+8. Once you have completely finished everything, double-check the responsive layout and the details.
+
+9. Once you're done, before sending it back to me, double-check absolutely everything—really, everything; I spent three days checking it myself. Okay, maybe that sounds like overkill, but just make sure.
